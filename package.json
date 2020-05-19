@@ -1,0 +1,52 @@
+{
+  "name": "athena",
+  "version": "1.0.0",
+  "description": "CSS & JS utility-first framework for rapid UI design",
+  "scripts": {
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production",
+    "lint-fix": "eslint --fix --debug ./src/js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kytha/athena.git"
+  },
+  "author": "Kytha",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-arrow-functions": "^7.8.3",
+    "@babel/plugin-transform-classes": "^7.9.5",
+    "@babel/plugin-transform-object-assign": "^7.8.3",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "autoprefixer": "^9.7.6",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "babel-preset-react": "^6.24.1",
+    "brotli-webpack-plugin": "^1.1.0",
+    "compression-webpack-plugin": "^3.1.0",
+    "css-loader": "^3.5.3",
+    "cssnano": "^4.1.10",
+    "fibers": "^4.0.3",
+    "mini-css-extract-plugin": "^0.8.2",
+    "node-sass": "^4.14.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "postcss-scss": "^2.0.0",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "serialize-javascript": "^2.1.2",
+    "style-loader": "^1.2.1",
+    "stylelint": "^12.0.1",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-scss": "^3.17.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "animejs": "^3.2.0",
+    "waypoints": "^4.0.1"
+  }
+}

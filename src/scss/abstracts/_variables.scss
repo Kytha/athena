@@ -1,0 +1,277 @@
+// ==========================================================================
+// Athena variables
+// ==========================================================================
+//
+// Table of Contents:
+//
+//  1. Breakpoints
+//  2. Align
+//  3. Border
+//  4. Colors
+//  5. Display
+//  6. Flex
+//  7. Media
+//  8. Positions
+//  9. Shadows
+//  10. Sizing
+//  11. Spacing
+//  12. Text
+
+// 1. Breakpoints
+// ==========================================================================
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+  "sm": 600px,
+  "md": 968px,
+  "lg": 1200px,
+) !default;
+
+// 2. Align
+// ==========================================================================
+
+// 3. Borders
+// ==========================================================================
+
+$border-size: 1px;
+$border-radius-modifier: 1;
+$border-radius-sizes: (
+  "xs": 0.2rem,
+  "sm": 0.4rem,
+  "md": 0.7rem,
+  "lg": 1rem,
+  "xl": 1.5rem,
+  "2xl": 2rem,
+);
+$border-variants: "hover", "active", "focus";
+
+// 4. Colors
+// ==========================================================================
+
+$shades: (
+  100: 25%,
+  200: 20%,
+  300: 15%,
+  400: 10%,
+  500: 0%,
+  600: 10%,
+  700: 15%,
+  800: 20%,
+  900: 25%,
+);
+$colors: (
+  "red": #d74247,
+  "blue": #2f74b7,
+  "green": #45a049,
+  "purple": #7442c8,
+  "teal": #66b2b2,
+  "grey": #babbbb,
+  //#b4b8b8
+    "orange": #fe9f01,
+  "yellow": #ffd300,
+  "brown": #98623c,
+  "cyan": #80ffff,
+  "pink": #f987c5,
+  "dark-grey": #9c9c9c,
+  "indigo": #3f51b5,
+  "black": #000,
+  "white": #fff,
+);
+
+$color-variants: ("hover");
+
+// 5. Display
+// ==========================================================================
+
+$displays: none, inline, inline-block, block, table, table-row, table-cell, flex,
+  inline-flex !default;
+
+$display-variants: ();
+
+$directions: (
+  t: top,
+  b: bottom,
+  l: left,
+  r: right,
+) !default;
+
+// 6. Flex
+// ==========================================================================
+
+$justify-content-directions: (
+  0: flex-start,
+  1: flex-end,
+  2: center,
+  3: space-between,
+  4: space-around,
+  5: stretch,
+  6: baseline,
+) !default;
+
+$flex-variants: ();
+
+// 7. Media
+// ==========================================================================
+
+$object-fits: fit, cover, fill, scale-down;
+$object-aligns: center, left, right;
+
+$media-variants: ();
+
+// 8. Position
+// ==========================================================================
+
+$position-variants: ();
+
+$insets: (
+  "full": 100%,
+  "two-thirds": 66.7%,
+  "half": 50%,
+  "third": 33.3%,
+  "quarter": 25%,
+  "0": 0,
+) !default;
+
+$inset-directions: (
+  l: left,
+  r: right,
+  t: top,
+  b: bottom,
+) !default;
+
+// 9. Shadow
+// ==========================================================================
+
+$xs-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+$sm-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$reg-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+$md-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$lg-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$xl-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+  0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$two-xl-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+$shadows: (
+  xs: $xs-shadow,
+  sm: $sm-shadow,
+  reg: $reg-shadow,
+  md: $md-shadow,
+  lg: $lg-shadow,
+  xl: $xl-shadow,
+  2xl: $two-xl-shadow,
+  none: none,
+  outline: 0 0 0 2px rgba(66, 153, 225, 0.5),
+  inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06),
+);
+$shadow-variants: ("focus", "active");
+
+// 10. Sizing
+// ==========================================================================
+
+$sizes: (
+  "0px": 0px,
+  "1px": 1px,
+  "16px": 16px,
+  "32px": 32px,
+  "48px": 48px,
+  "64px": 64px,
+  "128px": 128px,
+  "auto": auto,
+  "quarter": 25%,
+  "third": 33.3333%,
+  "half": 50%,
+  "two-thirds": 66.6666%,
+  "three-quarters": 75%,
+  "full": 100%,
+);
+
+$sizer: 1;
+$sizer-number: 60;
+
+// 11. Spacing
+// ==========================================================================
+
+$spacings: (
+  0: 0,
+  1: 0.25,
+  2: 0.5,
+  3: 0.75,
+  4: 1,
+  5: 1.25,
+  6: 1.5,
+  7: 1.75,
+  8: 2,
+  9: 2.5,
+  10: 3,
+  11: 4,
+  12: 5,
+) !default;
+
+// Spacing reference for spacing helpers
+$spacer: 1;
+
+// 12. Text
+// ==========================================================================
+
+/// Regular font family
+/// @type List
+$text-font-stack: "Open Sans", "Helvetica Neue Light", "Helvetica Neue",
+  "Helvetica", "Arial", sans-serif !default;
+
+/// Code (monospace) font family
+/// @type List
+$code-font-stack: "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+  "Monaco", monospace !default;
+
+$font-weights: (
+  "thin": 100,
+  "light": 200,
+  "regular": 400,
+  "medium": 500,
+  "bolder": 525,
+  "semi-bold": 600,
+  "bold": 700,
+  "heavy": 900,
+);
+
+$font-leadings: (
+  "none": 0,
+  "tight": 0.9,
+  "close": 1.25,
+  "normal": 1.5,
+  "loose": 1.75,
+  "free": 2,
+);
+
+$font-trackings: (
+  "tight": -0.05em,
+  "close": -0.025em,
+  "normal": 0,
+  "loose": 0.05em,
+  "free": 0.1em,
+);
+
+$light: 100;
+$regular: 400;
+$semi-bold: 500;
+$bold: 600;
+$heavy: 900;
+
+$font-sizes: (
+  xm: 0.6,
+  sm: 0.8,
+  md: 1,
+  lg: 1.25,
+  xl: 1.5,
+  2xl: 1.75,
+  3xl: 2,
+  4xl: 2.5,
+  5xl: 3,
+  6xl: 4,
+) !default;
+
+$text-variants: ();

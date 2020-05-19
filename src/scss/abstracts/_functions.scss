@@ -1,0 +1,3 @@
+@function spacing($index) {
+  @return $spacer * map-get($spacings, $index) * 1rem;
+}

@@ -1,0 +1,77 @@
+$positionings: (
+  0: absolute,
+  1: fixed,
+  2: relative,
+  3: sticky,
+) !default;
+
+@each $index, $position in $positionings {
+  @include create-variants("#{$position}", $position-variants) {
+    position: $position;
+  }
+  .#{$position} {
+    position: $position;
+  }
+}
+
+@each $breakpoint, $size in $breakpoints {
+  @include min-breakpoint($breakpoint) {
+    @each $index, $position in $positionings {
+      .#{$breakpoint}\:#{$position} {
+        position: $position;
+      }
+    }
+  }
+}
+
+@each $modifier, $direction in $inset-directions {
+  @each $inset, $value in $insets {
+    .inset-#{$modifier}-#{$inset} {
+      #{$direction}: $value;
+    }
+  }
+}
+
+@each $breakpoint, $size in $breakpoints {
+  @include min-breakpoint($breakpoint) {
+    @each $modifier, $direction in $inset-directions {
+      @each $inset, $value in $insets {
+        .#{$breakpoint}\:inset-#{$modifier}-#{$inset} {
+          #{$direction}: $value;
+        }
+      }
+    }
+  }
+}
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.inset-v-0 {
+  top: 0;
+  bottom: 0;
+}
+.inset-h-0 {
+  right: 0;
+  left: 0;
+}
+
+@each $breakpoint, $size in $breakpoints {
+  .#{$breakpoint}\:inset-0 {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .#{$breakpoint}\:inset-v-0 {
+    top: 0;
+    bottom: 0;
+  }
+  .#{$breakpoint}\:inset-h-0 {
+    right: 0;
+    left: 0;
+  }
+}

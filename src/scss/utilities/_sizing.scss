@@ -1,0 +1,77 @@
+@mixin create-sizing-class($modifier, $size) {
+  .w-#{$modifier} {
+    width: $size;
+  }
+  .h-#{$modifier} {
+    height: $size;
+  }
+  .max-w-#{$modifier} {
+    max-width: $size;
+  }
+  .max-h-#{$modifier} {
+    max-height: $size;
+  }
+}
+
+@mixin create-sizer-class($sizer-number) {
+  .h-#{$sizer-number} {
+    height: $sizer-number * $sizer * 1rem;
+  }
+  .w-#{$sizer-number} {
+    width: $sizer-number * $sizer * 1rem;
+  }
+  .max-h-#{$sizer-number} {
+    max-height: $sizer-number * $sizer * 1rem;
+  }
+  .max-w-#{$sizer-number} {
+    max-width: $sizer-number * $sizer * 1rem;
+  }
+}
+
+@mixin create-responsive-sizer-class($sizer-number, $breakpoint) {
+  .#{$breakpoint}\:h-#{$sizer-number} {
+    height: $sizer-number * $sizer * 1rem;
+  }
+  .#{$breakpoint}\:w-#{$sizer-number} {
+    width: $sizer-number * $sizer * 1rem;
+  }
+  .#{$breakpoint}\:max-h-#{$sizer-number} {
+    max-height: $sizer-number * $sizer * 1rem;
+  }
+  .#{$breakpoint}\:max-w-#{$sizer-number} {
+    max-width: $sizer-number * $sizer * 1rem;
+  }
+}
+
+@mixin create-responsive-sizing-class($modifier, $size, $breakpoint) {
+  .#{$breakpoint}\:w-#{$modifier} {
+    width: $size;
+  }
+  .#{$breakpoint}\:h-#{$modifier} {
+    height: $size;
+  }
+  .#{$breakpoint}\:max-w-#{$modifier} {
+    max-width: $size;
+  }
+  .#{$breakpoint}\:max-h-#{$modifier} {
+    max-height: $size;
+  }
+}
+
+@each $modifier, $size in $sizes {
+  @include create-sizing-class($modifier, $size);
+}
+@for $i from 0 through $sizer-number {
+  @include create-sizer-class($i);
+}
+
+@each $breakpoint, $pixels in $breakpoints {
+  @include min-breakpoint($breakpoint) {
+    @each $modifier, $size in $sizes {
+      @include create-responsive-sizing-class($modifier, $size, $breakpoint);
+    }
+    @for $i from 0 through $sizer-number {
+      @include create-responsive-sizer-class($i, $breakpoint);
+    }
+  }
+}

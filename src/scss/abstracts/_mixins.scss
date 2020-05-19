@@ -1,0 +1,115 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// @param {String} $breakpoint - The minimum screen size at which the styling will take effect
+@mixin min-breakpoint($breakpoint) {
+  @media (min-width: #{map-get($breakpoints,$breakpoint)}) {
+    @content;
+  }
+}
+
+/// @param {String} $breakpoint - The maximum screen size at which the styling will take effect
+@mixin max-breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: #{map-get($breakpoints,$breakpoint)}) {
+      @content;
+    }
+  } @else {
+    @warn "No breakpoint found";
+  }
+}
+/*
+/// @param {String} $minBreakpoint - The smallest screen size at which the styling will take effect
+/// @param {String} $maxBreakpoint - The largest screen size at which the styling will take effect
+@mixin ranged-breakpoint($minBreakpoint, $maxBreakpoint) {
+  @if map-has-key($breakpoints, $minBreakpoint) {
+    @media (min-width: #{map-get($breakpoints,$minBreakpoint)}) and (max-width: #{map-get($breakpoints, $maxBreakpoint)}) {
+      @content;
+    }
+  } @else {
+    @warn "No breakpoint found";
+  }
+}
+
+/// @param {String} $breakpoint - The screen size at which the style will exclusively take effect
+@mixin only-on-breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @if $breakpoint == lg {
+      @include min-breakpoint($breakpoint) {
+        @content;
+      }
+    } @else if $breakpoint == md {
+      @include ranged-breakpoint($breakpoint, lg) {
+        @content;
+      }
+    } @else if $breakpoint == sm {
+      @include max-breakpoint($breakpoint) {
+        @content;
+      }
+    }
+  } @else {
+    @warn "No breakpoint found";
+  }
+}
+*/
+
+/// @param {String} $animation-name
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+/// @param {String} $str
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+@mixin create-variants($className, $variants) {
+  @each $variant in $variants {
+    .#{$variant}\:#{$className}:#{$variant} {
+      @content;
+    }
+  }
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}

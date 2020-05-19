@@ -1,0 +1,80 @@
+// COLOR FACTORY
+// ==========================================================================
+// Creates a base color classes for each color. Then creates shade modifier classes for each.
+
+@mixin create-color-class($color, $hex-value) {
+  @each $shade-index, $shade in $shades {
+    .text-#{$color}-#{$shade-index} {
+      @if $shade-index >= 500 {
+        color: darken($hex-value, $shade) !important;
+      } @else {
+        color: lighten($hex-value, $shade) !important;
+      }
+    }
+  }
+
+  @each $shade-index, $shade in $shades {
+    .bg-#{$color}-#{$shade-index} {
+      @if $shade-index >= 500 {
+        background: darken($hex-value, $shade) !important;
+      } @else {
+        background: lighten($hex-value, $shade) !important;
+      }
+    }
+  }
+
+  @each $shade-index, $shade in $shades {
+    @include create-variants(
+      "text-#{$color}-#{$shade-index}",
+      $color-variants
+    ) {
+      transition: color ease-in-out 0.1s;
+      @if $shade-index >= 500 {
+        color: darken($hex-value, $shade) !important;
+      } @else {
+        color: lighten($hex-value, $shade) !important;
+      }
+    }
+    @include create-variants("bg-#{$color}-#{$shade-index}", $color-variants) {
+      transition: color ease-in-out 0.1s;
+      @if $shade-index >= 500 {
+        background: darken($hex-value, $shade) !important;
+      } @else {
+        background: lighten($hex-value, $shade) !important;
+      }
+    }
+  }
+}
+
+@mixin create-responsive-color-class($color, $hex-value, $breakpoint) {
+  @each $shade-index, $shade in $shades {
+    .#{$breakpoint}\:text-#{$color}-#{$shade-index} {
+      @if $shade-index >= 500 {
+        color: darken($hex-value, $shade) !important;
+      } @else {
+        color: lighten($hex-value, $shade) !important;
+      }
+    }
+  }
+
+  @each $shade-index, $shade in $shades {
+    .#{$breakpoint}\:bg-#{$color}-#{$shade-index} {
+      @if $shade-index >= 500 {
+        background: darken($hex-value, $shade) !important;
+      } @else {
+        background: lighten($hex-value, $shade) !important;
+      }
+    }
+  }
+}
+
+@each $color, $hex-value in $colors {
+  @include create-color-class($color, $hex-value);
+}
+@each $breakpoint, $size in $breakpoints {
+  @include min-breakpoint($breakpoint) {
+    @each $color, $hex-value in $colors {
+      @include create-responsive-color-class($color, $hex-value, $breakpoint);
+    }
+  }
+}

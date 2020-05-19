@@ -1,0 +1,16 @@
+@each $modifier, $shadow in $shadows {
+  .shadow-#{$modifier} {
+    box-shadow: $shadow;
+  }
+  @include create-variants("shadow-#{$modifier}", $shadow-variants) {
+    box-shadow: $shadow;
+  }
+}
+
+@each $breakpoint, $size in $breakpoints {
+  @each $modifier, $shadow in $shadows {
+    .#{breakpoint}\:shadow-#{$modifier} {
+      box-shadow: $shadow;
+    }
+  }
+}
