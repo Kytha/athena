@@ -15,4 +15,4 @@ Athena uses autoprefixer and babel polyfill to ensure css and js features work a
 
 # Documentation
 
-The documentation for Athena can be found [here](https://kytha.github.io/athena).
+The documentation for Athena can be found [here](https://athena-css.com).
