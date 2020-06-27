@@ -1,6 +1,6 @@
 # Athena
 
-Athena is a responsive and flexible utility-first framework for rapid UI design. Athena boasts a wide selection of utilities to create unique and flavorful designs which a free from the constraints of conventional SMACSS frameworks. Feel free to submit an issue or pull-request.
+Athena is a responsive and flexible utility-first framework for rapid UI design. Athena boasts a wide selection of utilities to create unique and flavorful designs which are free from the constraints of conventional component-first frameworks. Feel free to submit an issue or pull-request.
 
 # Browser Compatibility
 
