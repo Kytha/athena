@@ -106,7 +106,7 @@
   > h1,
   h1.markdown {
     @extend .mb-1;
-    @extend .leading-none;
+    @extend .leading-close;
     @extend .text-dark-grey-900;
     @extend .font-3xl;
     @extend .tracking-tight;
@@ -117,7 +117,7 @@
     @extend .mt-10;
     @extend .mb-4;
     @extend .text-dark-grey-900;
-    @extend .leading-none;
+    @extend .leading-close;
     @extend .font-2xl;
     @extend .tracking-tight;
   }
@@ -225,6 +225,10 @@
     @extend .p-6;
     @extend .rounded-lg;
     @extend .w-full;
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    background: #282a36;
   }
 
   .table-wrapper {

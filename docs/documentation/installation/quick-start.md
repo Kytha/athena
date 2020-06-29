@@ -20,7 +20,7 @@ description: Learn how to setup the perfect environment for building Athena webs
 
 If want to setup an environment where you can quickly start using Athena then you can simply download the stylesheet below. If you need full cross-browser support or need a smaller Athena package, then follow the [instructions for installing Athena with webpack](/documentation/installation/with-webpack).
 
-<a class="no-style p-4 bg-indigo-400 text-white-500 clickable rounded-sm shadow-md hover:bg-indigo-500 focus:outline-indigo-100" href="http://github.com/Kytha/athena/releases/download/v2.0.4/athena-{{site.version_tag}}.min.css">
+<a class="no-style inline-block p-4 bg-indigo-400 text-white-500 clickable rounded-sm shadow-md hover:bg-indigo-500 focus:outline-indigo-100" href="http://github.com/Kytha/athena/releases/download/v2.0.4/athena-{{site.version_tag}}.min.css">
 Athena v2.0
 </a>
 

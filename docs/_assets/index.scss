@@ -174,14 +174,14 @@ pre {
   top: 60%;
 }
 #modular span:nth-child(5) {
-  left: 160%;
+  left: 150%;
   top: -30%;
   animation: slide-one 6s ease-in-out infinite;
 }
 
 @keyframes slide-one {
   0% {
-    left: 160%;
+    left: 150%;
     top: -30%;
     transform: rotate(45deg);
   }
@@ -199,17 +199,17 @@ pre {
   36% {
     transform: rotate(0deg);
     top: 60%;
-    left: 160%;
+    left: 150%;
     transform: rotate(-45deg);
   }
   48% {
-    left: 160%;
+    left: 150%;
     top: -30%;
     transform: rotate(45deg);
   }
 
   100% {
-    left: 160%;
+    left: 150%;
     top: -30%;
     transform: rotate(45deg);
   }
@@ -229,12 +229,12 @@ pre {
   24% {
     transform: rotate(0deg);
     top: 60%;
-    left: 160%;
+    left: 150%;
     transform: rotate(-45deg);
   }
 
   36% {
-    left: 160%;
+    left: 150%;
     top: -30%;
     transform: rotate(45deg);
   }
@@ -260,11 +260,11 @@ pre {
   12% {
     transform: rotate(0deg);
     top: 60%;
-    left: 160%;
+    left: 150%;
     transform: rotate(-45deg);
   }
   24% {
-    left: 160%;
+    left: 150%;
     top: -30%;
     transform: rotate(45deg);
   }
