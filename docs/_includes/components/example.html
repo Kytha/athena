@@ -1,0 +1,12 @@
+<div class="example markdown">
+  <div>
+    {% if include.display %}{{include.display}} {% else %}
+    {{include.code}}{%endif %}
+  </div>
+
+  <pre>
+        <code class="{{include.language}}">
+{{include.code | strip | escape}}
+        </code>
+    </pre>
+</div>

@@ -1,29 +1,11 @@
-var path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 var OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-//const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
-  entry: ["./src/index.js", "./src/scss/athena.scss"],
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "athena.bundle.js",
-  },
-  /*optimization: {
-    minimizer: [
-      new UglifyJsPlugin({
-        test: /\.js(\?.*)?$/i
-      })
-    ]
-  }*/
+  entry: ["./src/athena.scss"],
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: "babel-loader",
-      },
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
@@ -50,7 +32,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "athena.bundle.css",
+      filename: "athena.min.css",
     }),
     new CompressionPlugin({
       filename: "[path].gz[query]",

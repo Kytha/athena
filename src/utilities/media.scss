@@ -1,0 +1,36 @@
+@each $fit in $object-fits {
+  .object-#{$fit} {
+    object-fit: $fit;
+  }
+  @include create-variants("object-#{$fit}", $media-variants) {
+    object-fit: $fit;
+  }
+}
+
+@each $align in $object-aligns {
+  .object-#{$align} {
+    object-position: $align;
+  }
+  @include create-variants("object-#{$align}", $media-variants) {
+    object-position: $align;
+  }
+}
+@each $breakpoint, $size in $breakpoints {
+  @include min-breakpoint($breakpoint) {
+    @each $fit in $object-fits {
+      .#{$breakpoint}\:object-#{$fit} {
+        object-fit: $fit;
+      }
+    }
+
+    @each $align in $object-aligns {
+      .#{$breakpoint}\:object-#{align} {
+        object-position: $align;
+      }
+    }
+  }
+}
+
+.fill-current {
+  fill: currentColor;
+}

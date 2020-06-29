@@ -1,0 +1,24 @@
+<nav class="z-1000 bg-gray-100 inset-h-0 inset-t-0 lg:border-b-0">
+  <div
+    class="w-full relative mh-auto ph-6 border-b-grey-300 pv-5 flex ai-center max-w-lg"
+  >
+    <div class="mr-6">
+      <a href="/" class="inline-flex ai-center">
+        {% include global/logo.html className="fill-current w-32px h-32px mr-3
+        text-indigo-400" %}
+        <h3 class="font-2xl font-weight-semi-bold text-indigo-400">Athena</h3>
+      </a>
+    </div>
+    <ul class="none md:block">
+      {% include navbar/links.html %}
+    </ul>
+    <div class="ml-auto flex ai-center">
+      <div class="md:flex ai-center mr-7 none">
+        {% include navbar/socials.html %}
+      </div>
+      <div>
+        {% include navbar/actions.html %}
+      </div>
+    </div>
+  </div>
+</nav>

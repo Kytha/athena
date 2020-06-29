@@ -1,0 +1,81 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// @param {String} $breakpoint - The minimum screen size at which the styling will take effect
+@mixin min-breakpoint($breakpoint) {
+  @media (min-width: #{map-get($breakpoints,$breakpoint)}) {
+    @content;
+  }
+}
+
+/// @param {String} $breakpoint - The maximum screen size at which the styling will take effect
+@mixin max-breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: #{map-get($breakpoints,$breakpoint)}) {
+      @content;
+    }
+  } @else {
+    @warn "No breakpoint found";
+  }
+}
+
+/// @param {String} $animation-name
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+/// @param {String} $str
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+@mixin create-variants($className, $variants) {
+  @each $variant in $variants {
+    .#{$variant}\:#{$className}:#{$variant} {
+      @content;
+    }
+  }
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}

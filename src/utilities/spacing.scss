@@ -1,0 +1,133 @@
+@mixin create-default-spacing-classes {
+  @each $i, $space in $spacings {
+    .m-#{$i} {
+      margin: $spacer * $space * 1rem !important;
+    }
+    .p-#{$i} {
+      padding: $spacer * $space * 1rem !important;
+    }
+    .mv-#{$i} {
+      margin-top: $spacer * $space * 1rem !important;
+      margin-bottom: $spacer * $space * 1rem !important;
+    }
+    .mh-#{$i} {
+      margin-left: $spacer * $space * 1rem !important;
+      margin-right: $spacer * $space * 1rem !important;
+    }
+
+    .pv-#{$i} {
+      padding-top: $spacer * $space * 1rem !important;
+      padding-bottom: $spacer * $space * 1rem !important;
+    }
+    .ph-#{$i} {
+      padding-left: $spacer * $space * 1rem !important;
+      padding-right: $spacer * $space * 1rem !important;
+    }
+  }
+  .mv-auto {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+  }
+  .mh-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@mixin create-directional-spacing-classes($modifier, $direction) {
+  .m#{$modifier}-auto {
+    margin-#{$direction}: auto !important;
+  }
+
+  @each $i, $space in $spacings {
+    .m#{$modifier}-#{$i} {
+      margin-#{$direction}: $spacer * $space * 1rem !important;
+    }
+
+    .p#{$modifier}-#{$i} {
+      padding-#{$direction}: $spacer * $space * 1rem !important;
+    }
+  }
+}
+
+@mixin create-responsive-spacing-classes($breakpoint) {
+  @include min-breakpoint($breakpoint) {
+    .#{$breakpoint}\:mv-auto {
+      margin-top: auto !important;
+      margin-bottom: auto !important;
+    }
+    .#{$breakpoint}\:mh-auto {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  }
+
+  @include min-breakpoint($breakpoint) {
+    @each $i, $space in $spacings {
+      .#{$breakpoint}\:m-#{$i} {
+        margin: $spacer * $space * 1rem !important;
+      }
+      .#{$breakpoint}\:p-#{$i} {
+        padding: $spacer * $space * 1rem !important;
+      }
+      .#{$breakpoint}\:pv-#{$i} {
+        padding-top: $spacer * $space * 1rem !important;
+        padding-bottom: $spacer * $space * 1rem !important;
+      }
+      .#{$breakpoint}\:ph-#{$i} {
+        padding-left: $spacer * $space * 1rem !important;
+        padding-right: $spacer * $space * 1rem !important;
+      }
+      .#{$breakpoint}\:mv-#{$i} {
+        margin-top: $spacer * $space * 1rem !important;
+        margin-bottom: $spacer * $space * 1rem !important;
+      }
+      .#{$breakpoint}\:mh-#{$i} {
+        margin-left: $spacer * $space * 1rem !important;
+        margin-right: $spacer * $space * 1rem !important;
+      }
+    }
+  }
+}
+
+@mixin create-responsive-directional-spacing-classes(
+  $modifier,
+  $direction,
+  $breakpoint
+) {
+  @include min-breakpoint($breakpoint) {
+    .#{$breakpoint}\:m#{$modifier}-auto {
+      margin-#{$direction}: auto !important;
+    }
+    .#{$breakpoint}\:p#{$modifier}-auto {
+      padding-#{$direction}: auto !important;
+    }
+  }
+
+  @include min-breakpoint($breakpoint) {
+    @each $i, $space in $spacings {
+      .#{$breakpoint}\:m#{$modifier}-#{$i} {
+        margin-#{$direction}: $spacer * $space * 1rem !important;
+      }
+      .#{$breakpoint}\:p#{$modifier}-#{$i} {
+        padding-#{$direction}: $spacer * $space * 1rem !important;
+      }
+    }
+  }
+}
+
+@include create-default-spacing-classes;
+
+@each $modifier, $direction in $directions {
+  @include create-directional-spacing-classes($modifier, $direction);
+  @each $breakpoint, $dimension in $breakpoints {
+    @include create-responsive-directional-spacing-classes(
+      $modifier,
+      $direction,
+      $breakpoint
+    );
+  }
+}
+@each $breakpoint, $dimension in $breakpoints {
+  @include create-responsive-spacing-classes($breakpoint);
+}

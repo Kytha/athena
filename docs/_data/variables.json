@@ -1,0 +1,429 @@
+{
+  "breakpoints": { "sm": "600px", "md": "968px", "lg": "1200px" },
+
+  "borders": {
+    "border-radius-classes": {
+      "list": [
+        { "class": ".rounded-xs", "default": "0.2rem" },
+        { "class": ".rounded-sm", "default": "0.4rem" },
+        { "class": ".rounded-md", "default": "border-radius: 0.7rem" },
+        { "class": ".rounded-lg", "default": "border-radius: 1rem" },
+        { "class": ".rounded-xl", "default": "border-radius: 1.5rem" },
+        { "class": ".rounded-2xl", "default": "border-radius: 2rem" },
+        { "class": ".rounded-3xl", "default": "border-radius: 4rem" }
+      ],
+      "headers": [
+        { "name": "Class name", "prop": "class", "type": "string" },
+        { "name": "Default Style", "prop": "default", "type": "string" }
+      ]
+    },
+    "simple_variables": [
+      { "name": "$border-variants", "default": "('hover', 'active', 'focus')" },
+      { "name": "$border-size", "default": "1px" },
+      { "name:": "border-radius-modifier", "default": "1" }
+    ]
+  },
+
+  "colors": {
+    "colors": {
+      "list": [
+        { "name": "red", "value": "#d74247" },
+        { "name": "blue", "value": "#2f74b7" },
+        { "name": "green", "value": "#45a049" },
+        { "name": "purple", "value": "#7442c8" },
+        { "name": "teal", "value": "#66b2b2" },
+        { "name": "grey", "value": "#b6b6b6" },
+        { "name": "orange", "value": "#fe9f01" },
+        { "name": "yellow", "value": "#ffd300" },
+        { "name": "brown", "value": "#98623c" },
+        { "name": "cyan", "value": "#80ffff" },
+        { "name": "pink", "value": "#f987c5" },
+        { "name": "dark-grey", "value": "#818181" },
+        { "name": "indigo", "value": "#3f51b5" },
+        { "name": "black", "value": "#000" },
+        { "name": "white", "value": "#fff" }
+      ],
+      "headers": [
+        {
+          "prop": "name",
+          "name": "Name",
+          "type": "string"
+        },
+        { "prop": "value", "name": "Value", "type": "color" }
+      ]
+    },
+    "shades": {
+      "list": [
+        { "index": "100", "magnitude": "25%" },
+        { "index": "200", "magnitude": "20%" },
+        { "index": "300", "magnitude": "15%" },
+        { "index": "400", "magnitude": "10%" },
+        { "index": "500", "magnitude": "0%" },
+        { "index": "600", "magnitude": "10%" },
+        { "index": "700", "magnitude": "15%" },
+        { "index": "800", "magnitude": "20%" },
+        { "index": "900", "magnitude": "25%" }
+      ],
+      "headers": [
+        {
+          "prop": "index",
+          "name": "Color index",
+          "type": "string"
+        },
+        {
+          "prop": "magnitude",
+          "name": "Magnitude",
+          "type": "number"
+        }
+      ]
+    },
+    "simple_variables": [{ "name": "$color-variants", "default": "('hover')" }]
+  },
+
+  "display": {
+    "displays": {
+      "list": [
+        { "display": "inline" },
+        { "display": "inline-block" },
+        { "display": "block" },
+        { "display": "table" },
+        { "display": "table-row" },
+        { "display": "table-cell" },
+        { "display": "flex" },
+        { "display": "inline-flex" },
+        { "display": "none" }
+      ],
+      "headers": [
+        {
+          "prop": "dislay",
+          "name": "Display",
+          "type": "string"
+        }
+      ]
+    },
+    "simple_variables": [{ "name": "$display-variants", "default": "()" }]
+  },
+
+  "flex": {
+    "simple_variables": [
+      {
+        "name": "justify-content-directions",
+        "default": "(flex-start, flex-end, center, space-between, space-around, stretch, baseline)"
+      },
+      { "name": "$flex-variants", "default": "()" }
+    ]
+  },
+
+  "media": {
+    "simple_variables": [
+      { "name": "$media-variants", "default": "()" },
+      { "name": "$object-fits", "default": "fit, cover, fill, scale-down" },
+      { "name": "$object-aligns", "default": "center, left, right;" }
+    ],
+    "objectFit": {
+      "list": [
+        {
+          "class": ".object-fit",
+          "property": "object-fit: contain"
+        },
+        {
+          "class": ".object-cover",
+          "property": "object-fit: cover"
+        },
+        {
+          "class": ".object-fill",
+          "property": "object-fit: fill"
+        },
+        {
+          "class": ".object-scale-down",
+          "property": "object-fit: scale-down"
+        },
+        {
+          "class": ".object-none",
+          "property": "object-fit: none"
+        }
+      ],
+      "headers": [
+        {
+          "name": "Class name",
+          "prop": "class",
+          "type": "string",
+          "color": "text-indigo-500"
+        },
+        {
+          "name": "Style",
+          "prop": "property",
+          "type": "string"
+        }
+      ]
+    },
+    "objectAlign": {
+      "list": [
+        {
+          "class": ".object-center",
+          "property": "object-position: center"
+        },
+        {
+          "class": ".object-left",
+          "property": "object-position: left"
+        },
+        {
+          "class": ".object-right",
+          "property": "object-position: right"
+        }
+      ],
+      "headers": [
+        {
+          "name": "Class name",
+          "prop": "class",
+          "type": "string",
+          "color": "text-indigo-500"
+        },
+        {
+          "name": "Style",
+          "prop": "property",
+          "type": "string"
+        }
+      ]
+    }
+  },
+
+  "outlines": {
+    "simple_variables": [
+      { "name": "$outline-variants", "default": "(`focus`)" },
+      { "name": "$outline-size", "default": "2px" }
+    ]
+  },
+
+  "spacing": {
+    "simple_variabls": [{ "name": "$spacer", "default": "1" }],
+    "spacings": {
+      "list": [
+        {
+          "coefficient": 0,
+          "default": "0rem"
+        },
+        {
+          "coefficient": 0.25,
+          "default": "0.25rem"
+        },
+        {
+          "coefficient": 0.5,
+          "default": "0.5rem"
+        },
+        {
+          "coefficient": 0.75,
+          "default": "0.75rem"
+        },
+        {
+          "coefficient": 1,
+          "default": "1rem"
+        },
+        {
+          "coefficient": 1.25,
+          "default": "1.25rem"
+        },
+        {
+          "coefficient": 1.5,
+          "default": "1.5rem"
+        },
+        {
+          "coefficient": 1.75,
+          "default": "1.75rem"
+        },
+        {
+          "coefficient": 2,
+          "default": "2rem"
+        },
+        {
+          "coefficient": 2.5,
+          "default": "2.5rem"
+        },
+        {
+          "coefficient": 3,
+          "default": "3rem"
+        },
+        {
+          "coefficient": 4,
+          "default": "4rem"
+        },
+        {
+          "coefficient": 5,
+          "default": "5rem"
+        },
+        {
+          "coefficient": 6,
+          "default": "6rem"
+        },
+        {
+          "coefficient": 7,
+          "default": "7rem"
+        },
+        {
+          "coefficient": 8,
+          "default": "8rem"
+        }
+      ],
+      "headers": [
+        {
+          "name": "Spacing index",
+          "prop": "NA",
+          "type": "index"
+        },
+        {
+          "name": "Coefficient",
+          "prop": "coefficient",
+          "type": "integer"
+        },
+        {
+          "name": "Computed value",
+          "prop": "default",
+          "type": "string"
+        }
+      ]
+    }
+  },
+
+  "typography": {
+    "fontTracking": {
+      "list": [
+        {
+          "class": ".tracking-tight",
+          "property": "letter-spacing: -0.05em"
+        },
+        {
+          "class": ".tracking-close",
+          "property": "letter-spacing: -0.05em"
+        },
+        {
+          "class": ".tracking-normal",
+          "property": "letter-spacing: 0"
+        },
+        {
+          "class": ".tracking-loose",
+          "property": "letter-spacing: 0.05em"
+        },
+        {
+          "class": ".tracking-free",
+          "property": "letter-spacing: 0.1em"
+        }
+      ],
+      "headers": [
+        {
+          "name": "Class name",
+          "prop": "class",
+          "type": "string",
+          "color": "text-indigo-500"
+        },
+        {
+          "name": "Style",
+          "prop": "property",
+          "type": "string"
+        }
+      ]
+    },
+    "leading": {},
+    "fontWeight": {
+      "list": [
+        {
+          "class": ".font-weight-thin",
+          "property": "font-weight: 100"
+        },
+        {
+          "class": ".font-weight-light",
+          "property": "font-weight: 200"
+        },
+        {
+          "class": ".font-weight-regular",
+          "property": "font-weight: 400"
+        },
+        {
+          "class": ".font-weight-medium",
+          "property": "font-weight: 500"
+        },
+        {
+          "class": ".font-weight-semi-bold",
+          "property": "font-weight: 600"
+        },
+        {
+          "class": ".font-weight-bold",
+          "property": "font-weight: 700"
+        },
+        {
+          "class": ".font-weight-heavy",
+          "property": "font-weight: 900"
+        }
+      ],
+      "headers": [
+        {
+          "name": "Class name",
+          "prop": "class",
+          "type": "string",
+          "color": "text-indigo-500"
+        },
+        {
+          "name": "Style",
+          "prop": "property",
+          "type": "string"
+        }
+      ]
+    },
+    "fontSize": {
+      "list": [
+        {
+          "class": ".font-xm",
+          "property": "font-size: 0.75rem"
+        },
+        {
+          "class": ".font-sm",
+          "property": "font-size: 0.875rem"
+        },
+        {
+          "class": ".font-md",
+          "property": "font-size: 1rem"
+        },
+        {
+          "class": ".font-lg",
+          "property": "font-size: 1.25rem"
+        },
+        {
+          "class": ".font-xl",
+          "property": "font-size: 1.5rem"
+        },
+        {
+          "class": ".font-2xl",
+          "property": "font-size: 1.75rem"
+        },
+        {
+          "class": ".font-3xl",
+          "property": "font-size: 2rem"
+        },
+        {
+          "class": ".font-4xl",
+          "property": "font-size: 2.5rem"
+        },
+        {
+          "class": ".font-5xl",
+          "property": "font-size: 3rem"
+        },
+        {
+          "class": ".font-6xl",
+          "property": "font-size: 4rem"
+        }
+      ],
+      "headers": [
+        {
+          "name": "Class name",
+          "prop": "class",
+          "type": "string",
+          "color": "text-indigo-500"
+        },
+        {
+          "name": "Style",
+          "prop": "property",
+          "type": "string"
+        }
+      ]
+    }
+  }
+}

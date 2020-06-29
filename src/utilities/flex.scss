@@ -1,0 +1,72 @@
+@mixin create-justify-content-class($modifier) {
+  .jc-#{$modifier} {
+    justify-content: $modifier !important;
+  }
+  @include create-variants("jc-#{$modifier}", $flex-variants) {
+    justify-content: $modifier !important;
+  }
+  .ai-#{$modifier} {
+    align-items: $modifier !important;
+  }
+  @include create-variants("ai-#{$modifier}", $flex-variants) {
+    align-items: $modifier !important;
+  }
+}
+
+@mixin create-responsive-justify-content-class($modifier, $breakpoint) {
+  .#{$breakpoint}\:jc-#{$modifier} {
+    justify-content: $modifier !important;
+  }
+  .#{$breakpoint}\:ai-#{$modifier} {
+    align-items: $modifier !important;
+  }
+}
+
+@each $index, $modifier in $justify-content-directions {
+  @include create-justify-content-class($modifier);
+}
+@each $breakpoint, $px in $breakpoints {
+  @include min-breakpoint($breakpoint) {
+    @each $index, $modifier in $justify-content-directions {
+      @include create-responsive-justify-content-class($modifier, $breakpoint);
+    }
+  }
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-shrink {
+  flex-shrink: 0;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+@each $breakpoint, $px in $breakpoints {
+  @include min-breakpoint($breakpoint) {
+    .#{$breakpoint}\:flex-col {
+      flex-direction: column;
+    }
+
+    .#{$breakpoint}\:flex-row {
+      flex-direction: row;
+    }
+
+    .#{$breakpoint}\:flex-grow {
+      flex-grow: 1;
+    }
+
+    .#{$breakpoint}\:flex-shrink {
+      flex-shrink: 0;
+    }
+  }
+}

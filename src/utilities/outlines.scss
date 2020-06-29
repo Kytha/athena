@@ -1,0 +1,18 @@
+@function outline($color, $shade) {
+  @if $shade >= 500 {
+    @return 0 0 0 $outline-size darken($color, $shade) !important;
+  } @else {
+    @return 0 0 0 $outline-size lighten($color, $shade) !important;
+  }
+}
+
+@each $color, $hex-value in $colors {
+  @each $color-index, $shade in $shades {
+    @include create-variants(
+      "outline-#{$color}-#{$color-index}",
+      $outline-variants
+    ) {
+      box-shadow: outline($hex-value, $shade);
+    }
+  }
+}

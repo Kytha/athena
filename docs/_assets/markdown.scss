@@ -1,0 +1,308 @@
+.markdown {
+  font-family: Open Sans, Helvetica, sans-serif;
+  font-size: 1rem;
+
+  @extend .text-dark-grey-900, .leading-loose;
+  //color: rgba(26, 32, 44, 1);
+  //@extend .leading-loose;
+  /*
+  .subnav,
+  .subnav& {
+    @extend flex;
+    @extend mt-6;
+    @extend mb-6;
+    @extend pb-2;
+    @extend border-b-2;
+    @extend border-grey-300;
+
+    .subnav-link,
+    .subnav-link& {
+      @extend mr-6;
+      @extend leading-none;
+      @extend text-grey-900;
+      @extend text-sm;
+    }
+  }
+  */
+
+  //Ridiculous scroll offset trash
+  > h2::before,
+  > h3::before,
+  > .heading::before {
+    display: block;
+    height: 6rem;
+    margin-top: -6rem;
+    visibility: hidden;
+    content: "";
+  }
+
+  > hr {
+    @extend .border-b-grey-200, .mv-15;
+  }
+  > a:not(.no-style),
+  > p a:not(.no-style),
+  > ul:not(.list-none) li a,
+  > ol:not(.list-none) li a {
+    @extend .text-indigo-400, .underline;
+
+    &:hover {
+      @extend .text-indigo-600;
+    }
+    strong {
+      @extend .text-indigo-500;
+    }
+    code {
+      @extend .text-indigo-500;
+    }
+  }
+
+  > p strong,
+  > ul strong {
+    @extend .font-weight-semi-bold;
+    @extend .text-dark-grey-900;
+  }
+
+  > p code,
+  > ul li *:not(pre) code,
+  > ul li > code,
+  > ol li *:not(pre) code,
+  > ol li > code {
+    @extend .inline-block;
+    @extend .bg-grey-200;
+    @extend .rounded-sm;
+    @extend .font-sm;
+    @extend .ph-2;
+    @extend .leading-none;
+    @extend .text-indigo-400;
+    font-family: consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
+      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    font-weight: 600;
+  }
+
+  > p strong code,
+  > ul li strong code,
+  > ol li strong code {
+    font-weight: 600;
+  }
+
+  pre,
+  code {
+    font-family: consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
+      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    @extend .rounded-lg;
+    font-weight: 400;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  > blockquote {
+    @extend .italic;
+    @extend .text-dark-grey-900;
+    @extend .font-sm;
+  }
+
+  > h1,
+  h1.markdown {
+    @extend .mb-1;
+    @extend .leading-none;
+    @extend .text-dark-grey-900;
+    @extend .font-3xl;
+    @extend .tracking-tight;
+  }
+
+  > h2,
+  h2.markdown {
+    @extend .mt-10;
+    @extend .mb-4;
+    @extend .text-dark-grey-900;
+    @extend .leading-none;
+    @extend .font-2xl;
+    @extend .tracking-tight;
+  }
+
+  > h2 + h3 {
+    @extend .mt-6;
+  }
+
+  > h3,
+  h3.markdown {
+    @extend .mt-8, .mb-3;
+    @extend .text-dark-grey-900;
+    @extend .leading-tight;
+    @extend .font-xl;
+    @extend .tracking-tight;
+  }
+
+  > h4,
+  h4.markdown {
+    @extend .mt-8;
+    @extend .mb-0;
+    @extend .text-grey-900;
+    @extend .leading-tight;
+    @extend .font-lg;
+  }
+
+  > h1 + p {
+    @extend .mt-8;
+  }
+
+  > h1 > code,
+  > h2 > code,
+  > h3 > code,
+  > h4 > code {
+    @extend .text-indigo-500;
+    font-family: consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
+      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+  }
+
+  > h3 > code {
+    @extend .font-lg, .ph-1, .bg-grey-200;
+  }
+
+  > h4 > code {
+    @extend .ph-1, .bg-grey-200;
+  }
+
+  > p,
+  > blockquote > p,
+  p.markdown {
+    @extend .mt-6;
+  }
+
+  > ul:not(.list-none) {
+    @extend .pl-0;
+    li {
+      @extend .relative, .pl-5;
+      &::before {
+        @extend .absolute,
+          .inset-l-0,
+          .text-dark-grey-900,
+          .inline-block,
+          .mr-3;
+        content: "\2022";
+      }
+    }
+  }
+
+  > ol,
+  ol.markdown {
+    //@extend .list-none;
+    counter-reset: item;
+    > li {
+      @extend .relative, .pl-10;
+    }
+    > li::before {
+      @extend .absolute, .inset-t-0, .inset-l-0;
+      @extend .flex, .ai-center, .jc-center;
+      @extend .h-6, .w-6, .bg-indigo-400, .rounded-xl;
+      @extend .text-white-500, .font-sm, .font-weight-bold;
+      content: counter(item);
+      counter-increment: item;
+    }
+  }
+
+  > :not(pre):not(h1):not(h2):not(h3):not(h4) > code,
+  > ul code,
+  > ol code {
+    line-height: 1.5 !important;
+    @extend .bg-grey-200;
+    @extend .font-sm;
+    @extend .leading-normal;
+  }
+
+  > pre,
+  > ul li pre,
+  > ol li pre {
+    @extend .flex, .p-0, .bg-grey-800;
+    @extend .font-sm, .leading-normal;
+  }
+
+  pre code,
+  > ul li pre code,
+  > ol li pre code {
+    @extend .p-6;
+    @extend .rounded-lg;
+    @extend .w-full;
+  }
+
+  .table-wrapper {
+    @extend .w-full;
+    @extend .border-grey-300, .rounded-lg;
+    height: auto;
+    overflow-y: auto;
+    max-height: 20rem !important;
+    &::-webkit-scrollbar {
+      width: 0.15rem !important;
+      height: 0.15rem !important;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 0.25rem !important;
+      --bg-opacity: 1 !important;
+      background-color: #cbd5e0 !important;
+      background-color: rgba(203, 213, 224, var(--bg-opacity)) !important;
+    }
+    &::-webkit-scrollbar-track {
+      --bg-opacity: 0 !important;
+    }
+  }
+  table {
+    table-layout: auto;
+    border-collapse: collapse !important;
+    @extend .w-full, .text-left;
+    @extend .font-xs;
+    th {
+      @extend .font-sm,
+        .font-weight-semi-bold,
+        .text-grey-700,
+        .ph-4,
+        .pv-2,
+        .bg-grey-100;
+    }
+    td {
+      @extend .ph-4, .pv-2, .border-t-grey-200, .font-xs;
+      code {
+        @extend .bg-grey-200,
+          .ph-1,
+          .font-xs,
+          .text-indigo-600,
+          .valign-baseline;
+      }
+    }
+  }
+  > *:first-child {
+    @extend .mt-0;
+  }
+
+  > * + * {
+    &:not(.anchorjs-link) {
+      @extend .mt-7;
+    }
+  }
+
+  > ul:not(.list-none) > * + *,
+  > ol > * + * {
+    @extend .mt-2;
+  }
+
+  .example {
+    > div {
+      @extend .p-9;
+      @extend .bg-grey-100;
+      @extend .rounded-lg;
+      @extend .border-grey-300;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    pre {
+      @extend .mt-0;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      code {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+  }
+}

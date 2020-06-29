@@ -1,0 +1,63 @@
+@function border($color, $shade, $shade-index) {
+  @if $shade-index >= 500 {
+    @return $border-size solid darken($color, $shade);
+  } @else {
+    @return $border-size solid lighten($color, $shade);
+  }
+}
+
+@mixin base-border-classes($color, $hex-value, $shade-index, $shade) {
+  .border-#{$color}-#{$shade-index} {
+    border: border($hex-value, $shade, $shade-index);
+  }
+  .border-v-#{$color}-#{$shade-index} {
+    border-left: border($hex-value, $shade, $shade-index);
+    border-right: border($hex-value, $shade, $shade-index);
+  }
+  .border-h-#{$color}-#{$shade-index} {
+    border-top: border($hex-value, $shade, $shade-index);
+    border-bottom: border($hex-value, $shade, $shade-index);
+  }
+  @include create-variants(
+    "border-#{$color}-#{$shade-index}",
+    $border-variants
+  ) {
+    border: border($hex-value, $shade, $shade-index);
+  }
+  @include create-variants(
+    "border-v-#{$color}-#{$shade-index}",
+    $border-variants
+  ) {
+    border-left: border($hex-value, $shade, $shade-index);
+    border-right: border($hex-value, $shade, $shade-index);
+  }
+  @include create-variants(
+    "border-h-#{$color}-#{$shade-index}",
+    $border-variants
+  ) {
+    border-top: border($hex-value, $shade, $shade-index);
+    border-bottom: border($hex-value, $shade, $shade-index);
+  }
+}
+@each $color, $hex-value in $colors {
+  @each $shade-index, $shade in $shades {
+    @include base-border-classes($color, $hex-value, $shade-index, $shade);
+    @each $modifier, $direction in $directions {
+      .border-#{$modifier}-#{$color}-#{$shade-index} {
+        border-#{$direction}: border($hex-value, $shade, $shade-index);
+      }
+      @include create-variants(
+        "border-#{$modifier}-#{$color}-#{$shade-index}",
+        $border-variants
+      ) {
+        border-#{$direction}: border($hex-value, $shade, $shade-index);
+      }
+    }
+  }
+}
+
+@each $size, $radius in $border-radius-sizes {
+  .rounded-#{$size} {
+    border-radius: $radius;
+  }
+}

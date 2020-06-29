@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include global/head.html %}
+  <body>
+    {% include global/navbar.html %}
+    <main class="ph-7 lg:ph-0">
+      <div class="max-w-lg mh-auto row pv-11">
+        <div class="col-md-2 none md:block">
+          {% include documentation/navigation.html %}
+        </div>
+        <div class="col-md-8 md:pl-4 md:pr-9 markdown">
+          {{content}}
+        </div>
+        <!-- 3rd Column unused
+        <div class="col-md-2">
+          <div
+            class="w-100 p-4 bg-grey-100 h-sm sticky rounded-lg border-grey-300"
+            style="top: 10%;"
+          ></div>
+        </div>
+        -->
+      </div>
+    </main>
+    {% include global/footer.html %} {% include global/resources.html %}
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<h4 class="mb-3 uppercase text-indigo-400 font-weight-bold mt-3">
+  Getting Started
+</h4>
+<ul class="pl-3 text-grey-600">
+  {% for link in site.data.navigation.getting_started %}
+  <li
+    class="pv-3 {% if page.doc-subnav == {{link.nav}} %}text-dark-grey-900{% endif %} font-weight-semi-bold font-sm"
+  >
+    <a href="{{site.url}}/documentation/{{link.nav}}">
+      {{link.name}}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+<h4 class="mv-7 uppercase text-indigo-400 font-weight-bold">Utilities</h4>
+<ul class="pl-3 text-grey-600">
+  {% for utility in site.data.navigation.utilities %}
+  <li
+    class="pv-3 {% if page.doc-subnav == {{utility.nav}} %}text-dark-grey-900{% endif %} font-weight-semi-bold font-sm"
+  >
+    <a href="{{site.url}}/documentation/{{utility.nav}}">
+      {{utility.name}}
+    </a>
+  </li>
+  {% endfor %}
+
+  <h4 class="mv-7 uppercase text-indigo-400 font-weight-bold">Examples</h4>
+  <ul class="pl-3 text-grey-600">
+    {% for example in site.data.navigation.examples %}
+    <li
+      class="pv-3 {% if page.doc-subnav == {{example.nav}} %}text-dark-grey-900{% endif %} font-weight-semi-bold font-sm"
+    >
+      <a href="{{site.url}}/documentation/{{example.nav}}">
+        {{example.name}}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</ul>

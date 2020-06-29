@@ -1,0 +1,111 @@
+@each $modifier, $weight in $font-weights {
+  .font-weight-#{$modifier} {
+    font-weight: $weight;
+  }
+  @include create-variants("font-weight-#{$modifier}", $text-variants) {
+    font-weight: $weight;
+  }
+}
+
+@each $modifier, $size in $font-sizes {
+  .font-#{$modifier} {
+    font-size: $size + rem;
+  }
+  @include create-variants("font-#{$modifier}", $text-variants) {
+    font-size: $size + rem;
+  }
+}
+
+@each $modifier, $height in $font-leadings {
+  .leading-#{$modifier} {
+    line-height: $height;
+  }
+  @include create-variants("leading-#{$modifier}", $text-variants) {
+    line-height: $height;
+  }
+}
+
+@each $modifier, $spacing in $font-trackings {
+  .tracking-#{$modifier} {
+    letter-spacing: $spacing;
+  }
+  @include create-variants("tracking-#{$modifier}", $text-variants) {
+    letter-spacing: $spacing;
+  }
+}
+
+@each $breakpoint, $size in $breakpoints {
+  @include min-breakpoint($breakpoint) {
+    @each $modifier, $weight in $font-weights {
+      .#{$breakpoint}\:font-weight-#{$modifier} {
+        font-weight: $weight;
+      }
+    }
+
+    @each $modifier, $size in $font-sizes {
+      .#{$breakpoint}\:font-#{$modifier} {
+        font-size: $size + rem;
+      }
+    }
+
+    @each $modifier, $height in $font-leadings {
+      .#{$breakpoint}\:leading-#{$modifier} {
+        line-height: $height;
+      }
+    }
+
+    @each $modifier, $spacing in $font-trackings {
+      .#{$breakpoint}\:tracking-#{$modifier} {
+        letter-spacing: $spacing;
+      }
+    }
+  }
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+@each $breakpoint, $size in $breakpoints {
+  @include min-breakpoint($breakpoint) {
+    .#{$breakpoint}\:text-center {
+      text-align: center;
+    }
+    .#{$breakpoint}\:text-right {
+      text-align: right;
+    }
+    .#{$breakpoint}\:text-left {
+      text-align: left;
+    }
+    .#{$breakpoint}\:truncate {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .#{$breakpoint}\:uppercase {
+      text-transform: uppercase;
+    }
+  }
+}

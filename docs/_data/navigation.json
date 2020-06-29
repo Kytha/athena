@@ -1,0 +1,38 @@
+{
+  "utilities": [
+    { "nav": "borders", "name": "Borders" },
+    { "nav": "color", "name": "Colors" },
+    { "nav": "display", "name": "Display" },
+    { "nav": "flex", "name": "Flex" },
+    { "nav": "media", "name": "Media" },
+    { "nav": "positioning", "name": "Positioning" },
+    { "nav": "shadows", "name": "Shadows" },
+    { "nav": "sizing", "name": "Sizing" },
+    { "nav": "spacing", "name": "Spacing" },
+    { "nav": "typography", "name": "Typography" }
+  ],
+  "getting_started": [
+    {
+      "name": "Installation",
+      "nav": "installation/quick-start"
+    },
+    {
+      "name": "Configuration",
+      "nav": "configuration"
+    },
+    {
+      "name": "Reducing File Size",
+      "nav": "file-size"
+    },
+    {
+      "name": "Utility Mindset",
+      "nav": "utility-mindset"
+    }
+  ],
+  "examples": [
+    {
+      "name": "Buttons",
+      "nav": "buttons"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+<div class="table-wrapper">
+    <table>
+        <thead class="sticky inset-t-0">
+            <tr>
+                {% for field in include.data.headers %}
+                    <th class="sticky inset-t-0">{{field.name}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% assign count = 0 %}
+            {% for i in include.data.list %}
+                <tr>
+                    {% for field in include.data.headers %}
+                        {% if field.color %}
+                            <td class="{{ field.color}}">
+                        {% else %}
+                            <td>
+                        {% endif %}
+                        {% case field.type %}
+                            {% when "color"%}
+                                {% capture color %}
+                                    {{i[field.prop]}}
+                                {% endcapture %}
+                                {% include components/color-swatch.html color=color %}
+                            {% when "index" %}
+                                {{count}}
+                            {% when "integer" %}
+                                <span class="text-indigo-400">{{i[field.prop]}}</span>
+                            {% else %}
+                                {{i[field.prop]}}
+                        {% endcase %}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% assign count = count | plus: 1 %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
