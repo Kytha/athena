@@ -23,7 +23,7 @@ email: thatchek@mcmaster.ca
 description: >- # this means to ignore newlines until "baseurl:"
   Athena is a utility first CSS UI framework
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://kytha.github.io/athena" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://athena-css.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: Ki_Thatch
 github_username: Kytha
 version_tag: v2.0.4
